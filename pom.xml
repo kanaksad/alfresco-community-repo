@@ -13,13 +13,13 @@
     </parent>
 
     <modules>
-        <module>core</module>
-        <module>data-model</module>
+<!--        <module>core</module>-->
+<!--        <module>data-model</module>-->
         <module>repository</module>
-        <module>remote-api</module>
-        <module>mmt</module>
-        <module>packaging</module>
-        <module>amps</module>
+<!--        <module>remote-api</module>-->
+<!--        <module>mmt</module>-->
+<!--        <module>packaging</module>-->
+<!--        <module>amps</module>-->
     </modules>
 
     <properties>
@@ -184,16 +184,20 @@
                             </compilerArguments>
                             <annotationProcessorPaths>
                                 <path>
-                                    <groupId>org.checkerframework</groupId>
-                                    <artifactId>checker</artifactId>
-                                    <version>3.35.0</version>
+                                    <groupId>edu.ucr.cs.riple.taint</groupId>
+                                    <artifactId>ucrtainting-checker</artifactId>
+                                    <version>0.1</version>
                                 </path>
                             </annotationProcessorPaths>
                             <annotationProcessors>
                                 <!-- Add all the checkers you want to enable here -->
-                                <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+                                <annotationProcessor>edu.ucr.cs.riple.taint.ucrtainting.UCRTaintingChecker</annotationProcessor>
                             </annotationProcessors>
                             <compilerArgs>
+                                <arg>-AannotatedPackages=org.alfresco</arg>
+                                <arg>-AenableLibraryCheck=true</arg>
+                                <arg>-AenableSanitizationCheck=false</arg>
+                                <arg>-AenableValidationCheck=false</arg>
                                 <!-- <arg>-Awarns</arg> --> <!-- -Awarns turns type-checking errors into warnings. -->
                             </compilerArgs>
                         </configuration>
@@ -287,7 +291,13 @@
             <artifactId>javac</artifactId>
             <version>9+181-r4173-1</version>
         </dependency>
+        <dependency>
+            <groupId>edu.ucr.cs.riple.taint</groupId>
+            <artifactId>ucrtainting-checker</artifactId>
+            <version>0.1</version>
+        </dependency>
     </dependencies>
+
     <dependencyManagement>
         <dependencies>
             <!-- Jakarta... -->
