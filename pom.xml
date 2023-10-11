@@ -186,14 +186,15 @@
                                 <path>
                                     <groupId>org.checkerframework</groupId>
                                     <artifactId>checker</artifactId>
-                                    <version>3.35.0</version>
+                                    <version>3.38.0</version>
                                 </path>
                             </annotationProcessorPaths>
                             <annotationProcessors>
                                 <!-- Add all the checkers you want to enable here -->
-                                <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+                                <annotationProcessor>org.checkerframework.checker.tainting.TaintingChecker</annotationProcessor>
                             </annotationProcessors>
                             <compilerArgs>
+<!--                                <arg>-Astubs="/Users/kknock/RIPLE/taint/summer/stubs/"</arg>-->
                                 <!-- <arg>-Awarns</arg> --> <!-- -Awarns turns type-checking errors into warnings. -->
                             </compilerArgs>
                         </configuration>
